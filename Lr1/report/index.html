@@ -1,0 +1,1726 @@
+
+<!doctype html>
+<html lang="ru" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="Daniil Meshcheriakov">
+      
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.20">
+    
+    
+      
+        <title>Лабораторная работа 1 - Мещеряков Даниил — Отчёты</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.e53b48f4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#no1-rest-api-fastapi" class="md-skip">
+          Перейти к содержанию
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Верхний колонтитул">
+    <a href="../.." title="Мещеряков Даниил — Отчёты" class="md-header__button md-logo" aria-label="Мещеряков Даниил — Отчёты" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Мещеряков Даниил — Отчёты
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Лабораторная работа 1
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Поиск" placeholder="Поиск" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Поиск">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Очистить" aria-label="Очистить" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализация поиска
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Мещеряков Даниил — Отчёты" class="md-nav__button md-logo" aria-label="Мещеряков Даниил — Отчёты" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Мещеряков Даниил — Отчёты
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Главная
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Лабораторные работы
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Лабораторные работы
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Лабораторная работа 1
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Лабораторная работа 1
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Цель работы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Предметная область
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Стек технологий
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Структура проекта
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Модели базы данных
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Модели базы данных">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#er-" class="md-nav__link">
+    <span class="md-ellipsis">
+      ER-диаграмма (описание связей)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user" class="md-nav__link">
+    <span class="md-ellipsis">
+      User
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team" class="md-nav__link">
+    <span class="md-ellipsis">
+      Team
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ассоциативные таблицы
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Endpoints
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Аутентификация (/auth)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пользователи (/users)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Навыки (/skills)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Проекты (/projects)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Команды (/teams)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Аутентификация и авторизация
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alembic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Миграции (Alembic)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Запуск проекта
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Запуск проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Установка зависимостей
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Настройка окружения
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Применить миграции
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Запуск сервера
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Документация
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Примеры запросов
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Примеры запросов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Регистрация
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Получение токена
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Поиск пользователей по навыку
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Создание проекта
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Вывод
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Содержание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Содержание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Цель работы
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Предметная область
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Стек технологий
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Структура проекта
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Модели базы данных
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Модели базы данных">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#er-" class="md-nav__link">
+    <span class="md-ellipsis">
+      ER-диаграмма (описание связей)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user" class="md-nav__link">
+    <span class="md-ellipsis">
+      User
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skill" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skill
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team" class="md-nav__link">
+    <span class="md-ellipsis">
+      Team
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ассоциативные таблицы
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#api-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      API Endpoints
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="API Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      Аутентификация (/auth)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#users" class="md-nav__link">
+    <span class="md-ellipsis">
+      Пользователи (/users)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skills" class="md-nav__link">
+    <span class="md-ellipsis">
+      Навыки (/skills)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Проекты (/projects)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      Команды (/teams)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Аутентификация и авторизация
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#alembic" class="md-nav__link">
+    <span class="md-ellipsis">
+      Миграции (Alembic)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Запуск проекта
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Запуск проекта">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Установка зависимостей
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Настройка окружения
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Применить миграции
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Запуск сервера
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Документация
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Примеры запросов
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Примеры запросов">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Регистрация
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Получение токена
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Поиск пользователей по навыку
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Создание проекта
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Вывод
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="no1-rest-api-fastapi">Лабораторная работа №1 — REST API на FastAPI</h1>
+<p><strong>Студент:</strong> Мещеряков Даниил<br />
+<strong>Группа:</strong> K3340  </p>
+<hr />
+<h2 id="_1">Цель работы</h2>
+<p>Разработать REST API с использованием фреймворка FastAPI, реляционной базы данных PostgreSQL, ORM SQLAlchemy и системы миграций Alembic. Реализовать JWT-аутентификацию и CRUD-операции для нескольких сущностей.</p>
+<hr />
+<h2 id="_2">Предметная область</h2>
+<p>Платформа <strong>TeamFinder</strong> — сервис для поиска людей в команду. Пользователи могут:</p>
+<ul>
+<li>регистрироваться и управлять своим профилем с набором навыков;</li>
+<li>создавать проекты и указывать требуемые навыки;</li>
+<li>формировать команды внутри проектов и добавлять участников с указанием роли;</li>
+<li>искать пользователей по навыку и уровню владения.</li>
+</ul>
+<hr />
+<h2 id="_3">Стек технологий</h2>
+<table>
+<thead>
+<tr>
+<th>Компонент</th>
+<th>Технология</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Фреймворк</td>
+<td>FastAPI</td>
+</tr>
+<tr>
+<td>ORM</td>
+<td>SQLAlchemy 2.0</td>
+</tr>
+<tr>
+<td>База данных</td>
+<td>PostgreSQL</td>
+</tr>
+<tr>
+<td>Миграции</td>
+<td>Alembic</td>
+</tr>
+<tr>
+<td>Аутентификация</td>
+<td>JWT (python-jose)</td>
+</tr>
+<tr>
+<td>Хеширование паролей</td>
+<td>passlib / bcrypt</td>
+</tr>
+<tr>
+<td>Валидация</td>
+<td>Pydantic v2</td>
+</tr>
+<tr>
+<td>Настройки</td>
+<td>pydantic-settings</td>
+</tr>
+<tr>
+<td>Сервер</td>
+<td>Uvicorn</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_4">Структура проекта</h2>
+<pre><code>Lr1/
+├── app/
+│   ├── main.py            # Точка входа, подключение роутеров
+│   ├── config.py          # Настройки (DB URL, JWT secret)
+│   ├── database.py        # Engine, SessionLocal, Base
+│   ├── dependencies.py    # get_current_user (JWT dependency)
+│   ├── models/
+│   │   ├── user.py        # Модель User
+│   │   ├── skill.py       # Модель Skill
+│   │   ├── project.py     # Модель Project
+│   │   ├── team.py        # Модель Team
+│   │   └── associations.py # UserSkill, TeamMember, ProjectSkill
+│   ├── schemas/           # Pydantic-схемы (входные/выходные DTO)
+│   ├── routers/           # FastAPI-роутеры
+│   └── services/
+│       └── auth.py        # Хеширование, JWT, аутентификация
+├── alembic/               # Миграции БД
+├── alembic.ini
+├── requirements.txt
+└── .env.example
+</code></pre>
+<hr />
+<h2 id="_5">Модели базы данных</h2>
+<h3 id="er-">ER-диаграмма (описание связей)</h3>
+<pre><code>User ──&lt; UserSkill &gt;── Skill
+ |                       |
+ |                    ProjectSkill
+ |                       |
+ └── owns ──&gt; Project ──&lt;─┘
+                |
+               Team ──&lt; TeamMember &gt;── User
+</code></pre>
+<h3 id="user">User</h3>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>Integer PK</td>
+<td>Идентификатор</td>
+</tr>
+<tr>
+<td>email</td>
+<td>String(255) unique</td>
+<td>Email</td>
+</tr>
+<tr>
+<td>username</td>
+<td>String(100) unique</td>
+<td>Логин</td>
+</tr>
+<tr>
+<td>hashed_password</td>
+<td>String(255)</td>
+<td>Хеш пароля</td>
+</tr>
+<tr>
+<td>full_name</td>
+<td>String(255)</td>
+<td>Полное имя</td>
+</tr>
+<tr>
+<td>bio</td>
+<td>Text</td>
+<td>О себе</td>
+</tr>
+<tr>
+<td>is_active</td>
+<td>Boolean</td>
+<td>Активен ли аккаунт</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>DateTime(tz)</td>
+<td>Дата регистрации</td>
+</tr>
+</tbody>
+</table>
+<h3 id="skill">Skill</h3>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>Integer PK</td>
+<td>Идентификатор</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String(100) unique</td>
+<td>Название навыка</td>
+</tr>
+<tr>
+<td>category</td>
+<td>String(100)</td>
+<td>Категория (programming, design, devops…)</td>
+</tr>
+<tr>
+<td>description</td>
+<td>Text</td>
+<td>Описание</td>
+</tr>
+</tbody>
+</table>
+<h3 id="project">Project</h3>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>Integer PK</td>
+<td>Идентификатор</td>
+</tr>
+<tr>
+<td>title</td>
+<td>String(255)</td>
+<td>Название</td>
+</tr>
+<tr>
+<td>description</td>
+<td>Text</td>
+<td>Описание</td>
+</tr>
+<tr>
+<td>status</td>
+<td>String(50)</td>
+<td>open / in_progress / completed / cancelled</td>
+</tr>
+<tr>
+<td>owner_id</td>
+<td>FK → users.id</td>
+<td>Владелец</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>DateTime(tz)</td>
+<td>Дата создания</td>
+</tr>
+<tr>
+<td>deadline</td>
+<td>DateTime(tz)</td>
+<td>Дедлайн</td>
+</tr>
+</tbody>
+</table>
+<h3 id="team">Team</h3>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>Integer PK</td>
+<td>Идентификатор</td>
+</tr>
+<tr>
+<td>name</td>
+<td>String(255)</td>
+<td>Название</td>
+</tr>
+<tr>
+<td>description</td>
+<td>Text</td>
+<td>Описание</td>
+</tr>
+<tr>
+<td>project_id</td>
+<td>FK → projects.id</td>
+<td>Проект</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>DateTime(tz)</td>
+<td>Дата создания</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_6">Ассоциативные таблицы</h3>
+<p><strong>UserSkill</strong> (User ↔ Skill):</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user_id</td>
+<td>FK PK</td>
+<td>Пользователь</td>
+</tr>
+<tr>
+<td>skill_id</td>
+<td>FK PK</td>
+<td>Навык</td>
+</tr>
+<tr>
+<td>proficiency_level</td>
+<td>String(50)</td>
+<td>beginner / intermediate / expert</td>
+</tr>
+</tbody>
+</table>
+<p><strong>TeamMember</strong> (Team ↔ User):</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>user_id</td>
+<td>FK PK</td>
+<td>Пользователь</td>
+</tr>
+<tr>
+<td>team_id</td>
+<td>FK PK</td>
+<td>Команда</td>
+</tr>
+<tr>
+<td>role</td>
+<td>String(100)</td>
+<td>developer, designer, manager…</td>
+</tr>
+<tr>
+<td>joined_at</td>
+<td>DateTime(tz)</td>
+<td>Дата вступления</td>
+</tr>
+</tbody>
+</table>
+<p><strong>ProjectSkill</strong> (Project ↔ Skill):</p>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>project_id</td>
+<td>FK PK</td>
+<td>Проект</td>
+</tr>
+<tr>
+<td>skill_id</td>
+<td>FK PK</td>
+<td>Навык</td>
+</tr>
+<tr>
+<td>required_level</td>
+<td>String(50)</td>
+<td>beginner / intermediate / expert</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="api-endpoints">API Endpoints</h2>
+<h3 id="auth">Аутентификация (<code>/auth</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Путь</th>
+<th>Описание</th>
+<th>Защита</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>POST</td>
+<td><code>/auth/register</code></td>
+<td>Регистрация пользователя</td>
+<td>—</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/auth/login</code></td>
+<td>Получение JWT-токена</td>
+<td>—</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/auth/change-password</code></td>
+<td>Смена пароля</td>
+<td>JWT</td>
+</tr>
+</tbody>
+</table>
+<h3 id="users">Пользователи (<code>/users</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Путь</th>
+<th>Описание</th>
+<th>Защита</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/users/</code></td>
+<td>Список всех пользователей</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/users/me</code></td>
+<td>Текущий пользователь с навыками</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td><code>/users/me</code></td>
+<td>Обновление профиля</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/users/search</code></td>
+<td>Поиск по навыку и уровню</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/users/{user_id}</code></td>
+<td>Профиль пользователя</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/users/me/skills</code></td>
+<td>Добавить навык в профиль</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/users/me/skills/{skill_id}</code></td>
+<td>Удалить навык из профиля</td>
+<td>JWT</td>
+</tr>
+</tbody>
+</table>
+<h3 id="skills">Навыки (<code>/skills</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Путь</th>
+<th>Описание</th>
+<th>Защита</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/skills/</code></td>
+<td>Список навыков</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/skills/</code></td>
+<td>Создать навык</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/skills/{skill_id}</code></td>
+<td>Навык по ID</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td><code>/skills/{skill_id}</code></td>
+<td>Обновить навык</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/skills/{skill_id}</code></td>
+<td>Удалить навык</td>
+<td>JWT</td>
+</tr>
+</tbody>
+</table>
+<h3 id="projects">Проекты (<code>/projects</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Путь</th>
+<th>Описание</th>
+<th>Защита</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/projects/</code></td>
+<td>Список проектов (фильтр по статусу)</td>
+<td>—</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/projects/</code></td>
+<td>Создать проект</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/projects/search</code></td>
+<td>Поиск по навыку и статусу</td>
+<td>—</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/projects/{project_id}</code></td>
+<td>Детали проекта</td>
+<td>—</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td><code>/projects/{project_id}</code></td>
+<td>Обновить проект (только владелец)</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/projects/{project_id}</code></td>
+<td>Удалить проект (только владелец)</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/projects/{project_id}/skills</code></td>
+<td>Добавить требуемый навык</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/projects/{project_id}/skills/{skill_id}</code></td>
+<td>Убрать требуемый навык</td>
+<td>JWT</td>
+</tr>
+</tbody>
+</table>
+<h3 id="teams">Команды (<code>/teams</code>)</h3>
+<table>
+<thead>
+<tr>
+<th>Метод</th>
+<th>Путь</th>
+<th>Описание</th>
+<th>Защита</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/teams/</code></td>
+<td>Список команд</td>
+<td>—</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/teams/</code></td>
+<td>Создать команду (только владелец проекта)</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/teams/{team_id}</code></td>
+<td>Детали команды с участниками</td>
+<td>—</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td><code>/teams/{team_id}</code></td>
+<td>Обновить команду</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/teams/{team_id}</code></td>
+<td>Удалить команду</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/teams/{team_id}/members</code></td>
+<td>Добавить участника</td>
+<td>JWT</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/teams/{team_id}/members/{user_id}</code></td>
+<td>Удалить участника</td>
+<td>JWT</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_7">Аутентификация и авторизация</h2>
+<p>Используется схема <strong>OAuth2 Bearer + JWT</strong>.</p>
+<ol>
+<li>Пользователь регистрируется через <code>POST /auth/register</code>.</li>
+<li>Получает токен через <code>POST /auth/login</code> (форма <code>application/x-www-form-urlencoded</code>).</li>
+<li>Токен передаётся в заголовке: <code>Authorization: Bearer &lt;token&gt;</code>.</li>
+<li>Dependency <code>get_current_user</code> декодирует токен, проверяет подпись и возвращает объект пользователя.</li>
+</ol>
+<p>Пароли хранятся в виде bcrypt-хеша. Время жизни токена — 60 минут (настраивается через <code>.env</code>).</p>
+<hr />
+<h2 id="alembic">Миграции (Alembic)</h2>
+<p>Начальная миграция <code>cc07524daec5_initial</code> создаёт все таблицы в правильном порядке с учётом зависимостей внешних ключей:</p>
+<pre><code>skills → users → projects → user_skills → project_skills → teams → team_members
+</code></pre>
+<p>Все внешние ключи настроены с <code>ondelete="CASCADE"</code>.</p>
+<p><strong>Команды:</strong></p>
+<pre><code class="language-bash"># Применить миграции
+alembic upgrade head
+
+# Создать новую миграцию
+alembic revision --autogenerate -m &quot;описание&quot;
+
+# Откатить последнюю миграцию
+alembic downgrade -1
+</code></pre>
+<hr />
+<h2 id="_8">Запуск проекта</h2>
+<h3 id="1">1. Установка зависимостей</h3>
+<pre><code class="language-bash">pip install -r requirements.txt
+</code></pre>
+<h3 id="2">2. Настройка окружения</h3>
+<p>Скопировать <code>.env.example</code> в <code>.env</code> и заполнить:</p>
+<pre><code class="language-env">DATABASE_URL=postgresql+psycopg://user:password@localhost:5432/teamfinder_db
+SECRET_KEY=your-secret-key
+ALGORITHM=HS256
+ACCESS_TOKEN_EXPIRE_MINUTES=60
+</code></pre>
+<h3 id="3">3. Применить миграции</h3>
+<pre><code class="language-bash">alembic upgrade head
+</code></pre>
+<h3 id="4">4. Запуск сервера</h3>
+<pre><code class="language-bash">uvicorn app.main:app --reload
+</code></pre>
+<p>Или через <code>run_server.bat</code> на Windows.</p>
+<h3 id="5">5. Документация</h3>
+<p>После запуска доступна интерактивная документация:</p>
+<ul>
+<li>Swagger UI: <a href="http://localhost:8000/docs">http://localhost:8000/docs</a></li>
+<li>ReDoc: <a href="http://localhost:8000/redoc">http://localhost:8000/redoc</a></li>
+</ul>
+<hr />
+<h2 id="_9">Примеры запросов</h2>
+<h3 id="_10">Регистрация</h3>
+<pre><code class="language-bash">curl -X POST http://localhost:8000/auth/register \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{
+    &quot;email&quot;: &quot;user@example.com&quot;,
+    &quot;username&quot;: &quot;john&quot;,
+    &quot;password&quot;: &quot;secret123&quot;,
+    &quot;full_name&quot;: &quot;John Doe&quot;
+  }'
+</code></pre>
+<h3 id="_11">Получение токена</h3>
+<pre><code class="language-bash">curl -X POST http://localhost:8000/auth/login \
+  -d &quot;username=john&amp;password=secret123&quot;
+</code></pre>
+<h3 id="_12">Поиск пользователей по навыку</h3>
+<pre><code class="language-bash">curl -X GET &quot;http://localhost:8000/users/search?skill_id=1&amp;proficiency_level=expert&quot; \
+  -H &quot;Authorization: Bearer &lt;token&gt;&quot;
+</code></pre>
+<h3 id="_13">Создание проекта</h3>
+<pre><code class="language-bash">curl -X POST http://localhost:8000/projects/ \
+  -H &quot;Authorization: Bearer &lt;token&gt;&quot; \
+  -H &quot;Content-Type: application/json&quot; \
+  -d '{
+    &quot;title&quot;: &quot;My Project&quot;,
+    &quot;description&quot;: &quot;Ищем разработчиков&quot;,
+    &quot;status&quot;: &quot;open&quot;
+  }'
+</code></pre>
+<hr />
+<h2 id="_14">Вывод</h2>
+<p>В ходе лабораторной работы была разработана REST API платформа TeamFinder на базе FastAPI. Реализованы:</p>
+<ul>
+<li>5 групп эндпоинтов (auth, users, skills, projects, teams) с полным CRUD;</li>
+<li>JWT-аутентификация с bcrypt-хешированием паролей;</li>
+<li>реляционная схема БД с ассоциативными таблицами, несущими атрибуты связи (<code>proficiency_level</code>, <code>role</code>, <code>required_level</code>);</li>
+<li>миграции через Alembic;</li>
+<li>поиск пользователей по навыку/уровню и проектов по требуемому навыку/статусу;</li>
+<li>ролевой контроль доступа (только владелец проекта может изменять команды).</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "\u0421\u043a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u043d\u043e \u0432 \u0431\u0443\u0444\u0435\u0440", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u043e\u0432\u0430\u0442\u044c \u0432 \u0431\u0443\u0444\u0435\u0440", "search.result.more.one": "\u0415\u0449\u0451 1 \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.more.other": "\u0415\u0449\u0451 # \u043d\u0430 \u044d\u0442\u043e\u0439 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0435", "search.result.none": "\u0421\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439 \u043d\u0435 \u043d\u0430\u0439\u0434\u0435\u043d\u043e", "search.result.one": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e 1 \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0435", "search.result.other": "\u041d\u0430\u0439\u0434\u0435\u043d\u043e \u0441\u043e\u0432\u043f\u0430\u0434\u0435\u043d\u0438\u0439: #", "search.result.placeholder": "\u041d\u0430\u0447\u043d\u0438\u0442\u0435 \u043f\u0435\u0447\u0430\u0442\u0430\u0442\u044c \u0434\u043b\u044f \u043f\u043e\u0438\u0441\u043a\u0430", "search.result.term.missing": "\u041e\u0442\u0441\u0443\u0442\u0441\u0442\u0432\u0443\u0435\u0442", "select.version": "\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u0432\u0435\u0440\u0441\u0438\u044e"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
