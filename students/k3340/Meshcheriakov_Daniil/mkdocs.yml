@@ -1,0 +1,16 @@
+site_name: Мещеряков Даниил — Отчёты
+site_author: Daniil Meshcheriakov
+docs_dir: reports
+
+theme:
+  name: material
+  language: ru
+  palette:
+    scheme: slate
+    primary: indigo
+    accent: indigo
+
+nav:
+  - Главная: index.md
+  - Лабораторные работы:
+    - Лабораторная работа 1: Lr1/report.md
